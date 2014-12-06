@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="waitstaffApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Waitstaff Calculator</title>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,300' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.3/angular.min.js" defer></script>
+	<script src="app.js" defer></script>
+</head>
+<body>
+	<div class="clearfix wrapper">
+		<h1>Waitstaff Calculator</h1>
+		<section class="left meal-details" ng-controller="mealDetailsCtrl">
+			<h2>Enter the Meal Details</h2>
+			<form name="enterMeal" ng-submit="addMeal()" novalidate>
+				<div class="row">
+					<span class="val-left">Base Meal Price&nbsp;</span>
+					<span>$</span>
+					<input type="number" ng-model="basePrice" class="val-right" placeholder="0.00" required>
+				</div>
+				<div class="row">
+					<span class="val-left">Tax Rate</span>
+					<span>%</span>
+					<input type="number" ng-model="taxRate" class="val-right" placeholder="0" required>
+				</div>
+				<div class="row">
+					<span class="val-left">Tip Percentage</span>
+					<span>%</span>
+					<input type="number" ng-model="tipPercent" class="val-right" placeholder="0" required>
+				</div>
+				<div class="form-btns">
+					<input type="submit" value="Submit">
+					<input type="button" value="Cancel" ng-click="cancelMeal()">
+				</div>
+			</form>
+		</section>
+		<section class="right customer-charges" ng-controller="customerChargesCtrl">
+			<h2>Customer Charges</h2>
+			<p class="row">
+				<span class="val-left">Subtotal</span>
+				<span class="val-right">{{subtotal | number:2}}</span>
+			</p>
+			<p class="row">
+				<span class="val-left">Tip</span>
+				<span class="val-right">{{tip | number:2}}</span>
+			</p>
+			<hr>
+			<p class="row total">
+				<span class="val-left">Total</span>
+				<span class="val-right">{{total | number:2}}</span>
+			</p>
+		</section>
+		<section class="right earnings" ng-controller="earningsCtrl">
+			<h2>My Earnings Info</h2>
+			<p class="row">
+				<span class="val-left">Tip Total</span>
+				<span class="val-right">{{tipTotal | number:2}}</span>
+			</p>
+			<p class="row">
+				<span class="val-left">Meal Count</span>
+				<span class="val-right">{{mealCount}}</span>
+			</p>
+			<p class="row">
+				<span class="val-left">Average Tip Per Meal</span>
+				<span class="val-right">{{avgTip | number:2}}</span>
+			</p>
+		</section>
+	</div>
+	<input type="button" class="reset-btn" value="Reset" ng-controller="resetCtrl" ng-click="reset()">
+</body>
+</html>
