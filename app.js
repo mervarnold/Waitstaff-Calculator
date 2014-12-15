@@ -1,6 +1,15 @@
 'use strict';
 
-angular.module('waitstaffApp', [])
+angular.module('waitstaffApp', ['ngRoute'])
+	.config(function($routeProvider) {
+		$routeProvider.when('/h', {
+			templateURL: 'home.html',
+			controler: 'homeCtrl'
+		});
+	})
+	.controller('homeCtrl', function(){
+		
+	})
 	.controller('mealDetailsCtrl', function($scope, $rootScope) {
 		$scope.addMeal = function() {
 			if ($scope.enterMeal.$invalid) {

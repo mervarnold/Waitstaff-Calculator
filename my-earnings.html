@@ -1,0 +1,16 @@
+<section class="earnings" ng-controller="earningsCtrl">
+	<h2>My Earnings Info</h2>
+	<p class="row">
+		<span class="val-left">Tip Total</span>
+		<span class="val-right">{{tipTotal | number:2}}</span>
+	</p>
+	<p class="row">
+		<span class="val-left">Meal Count</span>
+		<span class="val-right">{{mealCount}}</span>
+	</p>
+	<p class="row">
+		<span class="val-left">Average Tip Per Meal</span>
+		<span class="val-right">{{avgTip | number:2}}</span>
+	</p>
+</section>
+<input type="button" class="reset-btn" value="Reset" ng-controller="resetCtrl" ng-click="reset()">
