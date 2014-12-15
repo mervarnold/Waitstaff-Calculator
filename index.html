@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="waitstaffApp">
+<html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<title>Waitstaff Calculator</title>
@@ -10,13 +10,14 @@
 	<script src="bower_components/angular-route/angular-route.min.js"></script>
 	<script src="app.js"></script>
 </head>
-<body>
+<body ng-app="waitstaffApp">
 	<div class="clearfix wrapper">
 		<h1>Waitstaff Calculator</h1>
 
-		<div ng-view></div>
+		
+		<ng-view></ng-view>
 
-
+		<a href="https://github.com/mervarnold/Waitstaff-Calculator">View on Github</a>
 
 		<!-- <section class="left meal-details" ng-controller="mealDetailsCtrl">
 			<h2>Enter the Meal Details</h2>

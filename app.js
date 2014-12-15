@@ -1,10 +1,15 @@
 'use strict';
 
+//Gulp ngAnnotate
+
 angular.module('waitstaffApp', ['ngRoute'])
 	.config(function($routeProvider) {
-		$routeProvider.when('/h', {
+		$routeProvider.when('/home', {
 			templateURL: 'home.html',
-			controler: 'homeCtrl'
+			controller: 'homeCtrl'
+		})
+		.otherwise({
+			redirectTo: '/home'
 		});
 	})
 	.controller('homeCtrl', function(){
