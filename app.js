@@ -4,16 +4,18 @@
 
 angular.module('waitstaffApp', ['ngRoute'])
 	.config(function($routeProvider) {
-		$routeProvider.when('/home', {
-			templateURL: 'home.html',
-			controller: 'homeCtrl'
+		$routeProvider.when('/', {
+			templateUrl: 'home.html'
+		})
+		.when('/my-earnings', {
+			templateUrl: 'my-earnings.html'
+		})
+		.when('/new-meal', {
+			templateUrl: 'new-meal.html'
 		})
 		.otherwise({
 			redirectTo: '/home'
 		});
-	})
-	.controller('homeCtrl', function(){
-		
 	})
 	.controller('mealDetailsCtrl', function($scope, $rootScope) {
 		$scope.addMeal = function() {

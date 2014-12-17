@@ -1,6 +1,6 @@
 body {
 	font-family: 'Open Sans', sans-serif;
-	width: 1100px;
+	width: 600px;
 	margin: auto;
 	margin-bottom: 50px;
 	margin-top: 30px;
@@ -10,24 +10,31 @@ a {
 	color: #43c4f7;
 	text-decoration: none;
 	text-align: center;
-	font-size: 1.5em;
+	font-size: 1.2em;
+}
+
+.github {
 	display: block;
+	font-size: 1.5em;
+	margin-top: 45px;
+}
+
+nav {
+	text-align: center;
+	margin-bottom: 35px;
 }
 
 section {
 	border: 2px solid #000;
 	border-radius: 5px;
-	width: 41%;
 	padding: 20px 40px;
 	height: 100%;
+	margin: auto;
+	margin-bottom: 40px;
 }
 
 p, span {
 	font-size: 1.1em;
-}
-
-.wrapper {
-	height: 400px;
 }
 
 .customer-charges {
@@ -52,10 +59,9 @@ input[type="submit"], input[type="button"] {
 	margin-left: 10px;
 }
 
-.reset-btn {
-	position: relative;
-	left: 1016px;
-	margin-top: 30px;
+input.reset-btn {
+	margin-left: 0;
+	width: 100%;
 }
 
 .val-left, .val-right {
@@ -79,6 +85,7 @@ h1 {
 	text-align: center;
 	font-size: 3em;
 	font-weight: 300;
+	margin-bottom: 0;
 }
 
 h2 {
@@ -95,7 +102,7 @@ input {
 
 .form-btns {
 	text-align: center;
-	margin-top: 15%;
+	margin-top: 40px;
 }
 
 hr {
@@ -132,7 +139,7 @@ p.row .val-left {
 }
 
 .meal-details h2 {
-	margin-bottom: 50px;
+	margin-bottom: 30px;
 }
 
 p.row.total {
