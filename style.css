@@ -150,6 +150,27 @@ p.row.total {
 	border: 3px solid red;
 }
 
+.animate-view.ng-enter, .animate-view.ng-leave {
+	transition: 0.3s linear all;
+}
+
+.animate-view.ng-enter {
+	opacity: 0;
+	transition-delay: 0.3s;
+}
+
+.animate-view.ng-enter.ng-enter-active {
+	opacity: 1;
+}
+
+.animate-view.ng-leave {
+	opacity: 1;
+}
+
+.animate-view.ng-leave.ng-leave-active {
+	opacity: 0;
+}
+
 .clearfix:before,
 .clearfix:after {
   content: "";

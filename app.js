@@ -2,7 +2,7 @@
 
 //Gulp ngAnnotate
 
-angular.module('waitstaffApp', ['ngRoute'])
+angular.module('waitstaffApp', ['ngRoute', 'ngAnimate'])
 	.config(function($routeProvider) {
 		$routeProvider.when('/', {
 			templateUrl: 'home.html'
@@ -14,7 +14,7 @@ angular.module('waitstaffApp', ['ngRoute'])
 			templateUrl: 'new-meal.html'
 		})
 		.otherwise({
-			redirectTo: '/home'
+			redirectTo: '/'
 		});
 	})
 	.controller('mealDetailsCtrl', function($scope, $rootScope) {

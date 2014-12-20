@@ -8,12 +8,13 @@
 	<link rel="stylesheet" href="style.css">
 	<script src="bower_components/angular/angular.min.js"></script>
 	<script src="bower_components/angular-route/angular-route.min.js"></script>
+	<script src="bower_components/angular-animate/angular-animate.min.js"></script>
 	<script src="app.js"></script>
 </head>
 <body ng-app="waitstaffApp">
 		<h1>Waitstaff Calculator</h1>
 		<nav><p><a href="#/">Home</a> | <a href="#/new-meal">New Meal</a> | <a href="#/my-earnings">My Earnings</a></p></nav>
-		<div ng-view></div>
+		<div class="animate-view" ng-view></div>
 
 		<a href="https://github.com/mervarnold/Waitstaff-Calculator" class="github">View on Github</a>
 
