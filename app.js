@@ -17,6 +17,12 @@ angular.module('waitstaffApp', ['ngRoute', 'ngAnimate'])
 			redirectTo: '/'
 		});
 	})
+
+	.value('mealHistory', {
+		mealCount: 0,
+		tipTotal: 0
+	})
+
 	.controller('mealDetailsCtrl', function($scope, $rootScope) {
 		$scope.addMeal = function() {
 			if ($scope.enterMeal.$invalid) {
@@ -37,31 +43,44 @@ angular.module('waitstaffApp', ['ngRoute', 'ngAnimate'])
 			resetForm();
 		}
 	})
-	.controller('customerChargesCtrl', function($scope, $rootScope){
+
+	.controller('customerChargesCtrl', function($scope, $rootScope, mealHistory){
 		$scope.subtotal = $scope.tip = $scope.total = 0;
 		$scope.$on('mealAdded', function(event, basePrice, taxRate, tipPercent){
 			$scope.subtotal = basePrice + basePrice * (tipPercent / 100);
 			$scope.tip = $scope.subtotal * (tipPercent / 100);
 			$scope.total = $scope.subtotal + $scope.tip;
-			$rootScope.$broadcast('mealCharged', $scope.tip);
+			//$rootScope.$broadcast('mealCharged', $scope.tip);
+			mealHistory.mealCount++;
+			mealHistory.tipTotal += $scope.tip;
 		})
 		$scope.$on('hardReset', function() {
 			$scope.subtotal = $scope.tip = $scope.total = 0;
 		})
 	})
-	.controller('earningsCtrl', function($scope){
-		$scope.mealCount = $scope.tipTotal = $scope.avgTip = 0;
-		$scope.$on('mealCharged', function(event, tip){
-			$scope.mealCount++;
-			$scope.tipTotal += tip;
-			$scope.avgTip = $scope.tipTotal / $scope.mealCount;
-		})
+
+	.controller('earningsCtrl', function($scope, mealHistory){
+		$scope.mealCount = mealHistory.mealCount;
+		$scope.tipTotal = mealHistory.tipTotal;
+		$scope.avgTip = ($scope.tipTotal / $scope.mealCount) || 0;
+
+		// $scope.mealCount = $scope.tipTotal = $scope.avgTip = 0;
+		// $scope.$on('mealCharged', function(event, tip){
+		// 	$scope.mealCount++;
+		// 	$scope.tipTotal += tip;
+		// 	$scope.avgTip = $scope.tipTotal / $scope.mealCount;
+		// })
 		$scope.$on('hardReset', function() {
 			$scope.mealCount = $scope.tipTotal = $scope.avgTip = 0;
+			mealHistory.tipTotal = mealHistory.mealCount = 0;
 		})
 	})
+
 	.controller('resetCtrl', function($scope, $rootScope){
 		$scope.reset = function() {
 			$rootScope.$broadcast('hardReset');
 		}
 	});
+
+
+
