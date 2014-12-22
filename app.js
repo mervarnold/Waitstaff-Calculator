@@ -50,7 +50,6 @@ angular.module('waitstaffApp', ['ngRoute', 'ngAnimate'])
 			$scope.subtotal = basePrice + basePrice * (tipPercent / 100);
 			$scope.tip = $scope.subtotal * (tipPercent / 100);
 			$scope.total = $scope.subtotal + $scope.tip;
-			//$rootScope.$broadcast('mealCharged', $scope.tip);
 			mealHistory.mealCount++;
 			mealHistory.tipTotal += $scope.tip;
 		})
@@ -64,12 +63,6 @@ angular.module('waitstaffApp', ['ngRoute', 'ngAnimate'])
 		$scope.tipTotal = mealHistory.tipTotal;
 		$scope.avgTip = ($scope.tipTotal / $scope.mealCount) || 0;
 
-		// $scope.mealCount = $scope.tipTotal = $scope.avgTip = 0;
-		// $scope.$on('mealCharged', function(event, tip){
-		// 	$scope.mealCount++;
-		// 	$scope.tipTotal += tip;
-		// 	$scope.avgTip = $scope.tipTotal / $scope.mealCount;
-		// })
 		$scope.$on('hardReset', function() {
 			$scope.mealCount = $scope.tipTotal = $scope.avgTip = 0;
 			mealHistory.tipTotal = mealHistory.mealCount = 0;
